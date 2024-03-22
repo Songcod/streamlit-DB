@@ -219,7 +219,6 @@ pytrends==4.9.0
 pytz==2023.3.post1
 pyupbit==0.2.33
 PyWavelets==1.4.1
-pywin32==306
 PyYAML==6.0.1
 pyzmq==25.1.1
 ray==2.9.1
