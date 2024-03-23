@@ -140,7 +140,7 @@ def display_cover():
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
-            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihabHj4NDgk50cT1YvfjYO6fQ4WvYnGRqwWAJYyM4Ppf8ua-sYK_ChkH0ufxYzYZXEVewUT0DYUT9tmhtZ02ZU3dinQf=w959-h910; width: 194.6px ;height: auto; max-height: 24rem;">
+            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihabHj4NDgk50cT1YvfjYO6fQ4WvYnGRqwWAJYyM4Ppf8ua-sYK_ChkH0ufxYzYZXEVewUT0DYUT9tmhtZ02ZU3dinQf=w959-h910" style="width: 384px; height: auto; max-height: 24rem;">
         </div>
         """,
         unsafe_allow_html=True,
@@ -210,13 +210,13 @@ def display_intro():
     st.markdown("# 옷BTI 설문조사")
 
     st.markdown(
-        f"""
-        <div style="display: flex; justify-content: center;">
-            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihbKh5LIOXYet0VQbOcHJWBJ4gf3BLeliXBi_daSykPu7QWRmac2Ci4Hj7BNdpqCovnqCqNgTF3GwdVd9yVheUyWXIX0QQ=w959-h910; width: 194.6px">
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+             f"""
+             <div style="display: flex; justify-content: center;">
+                 <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihbKh5LIOXYet0VQbOcHJWBJ4gf3BLeliXBi_daSykPu7QWRmac2Ci4Hj7BNdpqCovnqCqNgTF3GwdVd9yVheUyWXIX0QQ=w959-h910" style="width: 384px">
+             </div>
+             """,
+             unsafe_allow_html=True,
+         )
 
     if st.button("찍찍이 유형 확인하기", key="start_survey"):
         st.session_state['page'] = 'survey'
@@ -288,7 +288,7 @@ def display_results():
     st.markdown(
         f"""
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="{image_url}" style="width: 194.6px; height: 194.6px; max-height: 24rem;">
+            <img src="{image_url}" style="width: 384px; height: 384px; max-height: 24rem;">
             <div style="text-align: center;"></div>
         </div>
         """,
@@ -299,7 +299,7 @@ def display_results():
         f"""
         <div style="display: flex; flex-direction: column; align-items: center;">
             <a href="https://www.instagram.com/db_seoulsamgyetang/" target="_blank">
-                <img src="{description_url}" style="width: 194.6px; height: 194.6px; max-height: 24rem;">
+                <img src="{description_url}" style="width: 384px; height:384px; max-height: 24rem;">
             </a>
             <div style="text-align: center;"></div>
         </div>
