@@ -51,7 +51,7 @@ def set_page_style():
     /* 설문 질문 글꼴 크기 확대 */
     .markdown-text-container, .stMarkdown {
         text-align: center !important;
-        font-size: 20px !important; /* 글꼴 크기 조정 */
+        font-size: 16px !important; /* 글꼴 크기 조정 */
     }
     </style>
     """, unsafe_allow_html=True)
@@ -232,7 +232,7 @@ def display_survey():
         st.markdown(
             f"""
             <div style="display: flex; justify-content: center;">
-                <img src={image_url_survey} style="height: auto; max-height: 24rem;">
+                <img src={image_url_survey} style="width: 288px; height: 288px;">
             </div>
             """,
             unsafe_allow_html=True,
