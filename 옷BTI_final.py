@@ -140,18 +140,19 @@ def display_cover():
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
-            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihabHj4NDgk50cT1YvfjYO6fQ4WvYnGRqwWAJYyM4Ppf8ua-sYK_ChkH0ufxYzYZXEVewUT0DYUT9tmhtZ02ZU3dinQf=w959-h910"; height: auto; max-height: 24rem;">
+            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihabHj4NDgk50cT1YvfjYO6fQ4WvYnGRqwWAJYyM4Ppf8ua-sYK_ChkH0ufxYzYZXEVewUT0DYUT9tmhtZ02ZU3dinQf=w959-h910; width: 194.6px ;height: auto; max-height: 24rem;">
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    st.markdown("## 옷BTI 설문조사")
     
     if st.button("Start", key="start"):
         st.session_state['page'] = 'intro'
         st.rerun()
 
+
+    st.markdown("## 찍찍이 현황")
     col1, col2, col3, col4 = st.columns(4)
 
     # 캐릭터 순서와 이미지 URL을 업데이트
@@ -186,7 +187,7 @@ def display_cover():
         else : 
             percentage = 0
         with col:
-            st.markdown(f"### {headers[i]}")
+            st.markdown(f"#### {headers[i]}")
             st.write(f"{percentage:.2f}%")
             st.markdown(
                 f"""
@@ -211,7 +212,7 @@ def display_intro():
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
-            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihbKh5LIOXYet0VQbOcHJWBJ4gf3BLeliXBi_daSykPu7QWRmac2Ci4Hj7BNdpqCovnqCqNgTF3GwdVd9yVheUyWXIX0QQ=w959-h910">
+            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihbKh5LIOXYet0VQbOcHJWBJ4gf3BLeliXBi_daSykPu7QWRmac2Ci4Hj7BNdpqCovnqCqNgTF3GwdVd9yVheUyWXIX0QQ=w959-h910; width: 194.6px">
         </div>
         """,
         unsafe_allow_html=True,
@@ -287,7 +288,7 @@ def display_results():
     st.markdown(
         f"""
         <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="{image_url}" style="width: 600px; height: 600px; max-height: 24rem;">
+            <img src="{image_url}" style="width: 194.6px; height: 194.6px; max-height: 24rem;">
             <div style="text-align: center;"></div>
         </div>
         """,
@@ -298,7 +299,7 @@ def display_results():
         f"""
         <div style="display: flex; flex-direction: column; align-items: center;">
             <a href="https://www.instagram.com/db_seoulsamgyetang/" target="_blank">
-                <img src="{description_url}" style="width: 600px; height: 600px; max-height: 24rem;">
+                <img src="{description_url}" style="width: 194.6px; height: 194.6px; max-height: 24rem;">
             </a>
             <div style="text-align: center;"></div>
         </div>
