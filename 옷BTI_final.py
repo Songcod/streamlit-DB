@@ -253,7 +253,7 @@ def display_results():
     selected_options = st.session_state.selected_options # 결과값 리스트
 
 
-    reulst_data = list(selected_options)
+    result_data = list(selected_options)
     # 사용자의 선택에 대한 점수를 계산합니다.
     results = pd.Series(selected_options)
     converted_scores = results.map(score_dict).tolist()
@@ -284,7 +284,7 @@ def display_results():
     
     if not st.session_state.get('results_saved', False):
          result_data.append(message)
-         worksheet.append_row(reulst_data)
+         worksheet.append_row(result_data)
          st.session_state['results_saved'] = True  # 결과가 저장되었다는 표시를 합니다.
 
 
