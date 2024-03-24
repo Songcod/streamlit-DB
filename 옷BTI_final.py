@@ -199,14 +199,6 @@ def display_cover():
             )
 
 def display_intro():
-    st.markdown(
-        f"""
-        <div style="display: flex; justify-content: center;">
-            <img src=>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
     st.markdown("# 옷BTI 설문조사")
 
     st.markdown(
