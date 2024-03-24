@@ -283,9 +283,9 @@ def display_results():
 
     
     if not st.session_state.get('results_saved', False):
-    result_data.append(message)
-    worksheet.append_row(reulst_data)
-    st.session_state['results_saved'] = True  # 결과가 저장되었다는 표시를 합니다.
+         result_data.append(message)
+         worksheet.append_row(reulst_data)
+         st.session_state['results_saved'] = True  # 결과가 저장되었다는 표시를 합니다.
 
 
     st.markdown(
@@ -325,7 +325,7 @@ def display_results():
 
 def main():
     if st.session_state.page == 'cover':
-    st.session_state['results_saved'] = False
+        st.session_state['results_saved'] = False
         display_cover()
     elif st.session_state.page == 'intro': # 설명 페이지 추가
         display_intro()
