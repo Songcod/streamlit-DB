@@ -283,7 +283,7 @@ def display_results():
 
     
     if not st.session_state.get('results_saved', False):
-    reulst_data.append(message)
+    result_data.append(message)
     worksheet.append_row(reulst_data)
     st.session_state['results_saved'] = True  # 결과가 저장되었다는 표시를 합니다.
 
