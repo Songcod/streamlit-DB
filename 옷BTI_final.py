@@ -137,6 +137,7 @@ if 'response_tracker' not in st.session_state:
 
 
 def display_cover():
+    set_page_style() 
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
@@ -199,6 +200,7 @@ def display_cover():
             )
 
 def display_intro():
+    set_page_style() 
     st.markdown("# 옷BTI 설문조사")
 
     st.markdown(
@@ -215,6 +217,7 @@ def display_intro():
         st.rerun()
 
 def display_survey():
+    set_page_style() 
     question_index = st.session_state.question_index
     if question_index < len(questions):
         question, options, image_url_survey = questions[question_index]
