@@ -137,16 +137,14 @@ if 'response_tracker' not in st.session_state:
 
 
 def display_cover():
-    set_page_style() 
     st.markdown(
         f"""
         <div style="display: flex; justify-content: center;">
-            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihZiyzC1h1UW88uwfo5jRXJJzkQy3LJmcbkHXH-Tmmq_yTXVXfCzxKX9LTc-e3_iUxISBN_pxUffQYpOB6VX3Al3yqv1Iu9Z7w=w958-h911-rw-v1">
+            <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihZiyzC1h1UW88uwfo5jRXJJzkQy3LJmcbkHXH-Tmmq_yTXVXfCzxKX9LTc-e3_iUxISBN_pxUffQYpOB6VX3Al3yqv1Iu9Z7w=w958-h911-rw-v1" style="width: 384px; height:384px; max-height: 24rem;">
         </div>
         """,
         unsafe_allow_html=True,
     )
-
     
     if st.button("Start", key="start"):
         st.session_state['page'] = 'intro'
@@ -199,14 +197,13 @@ def display_cover():
                 unsafe_allow_html=True,
             )
 
-def display_intro():
-    set_page_style() 
+def display_intro(): 
     st.markdown("# 옷BTI 설문조사")
 
     st.markdown(
              f"""
              <div style="display: flex; justify-content: center;">
-                 <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihZ8ke3I319C4sT-aQnvY25Nxd7c-8B-pma12YWrLnk9ksZXiH5AZ9aV-ea6AxBqMedN4vM-5OXuHUbsKWg7LMf_otFnm9k1aIQ=w958-h911-rw-v1">
+                 <img src="https://lh3.googleusercontent.com/u/1/drive-viewer/AKGpihZ8ke3I319C4sT-aQnvY25Nxd7c-8B-pma12YWrLnk9ksZXiH5AZ9aV-ea6AxBqMedN4vM-5OXuHUbsKWg7LMf_otFnm9k1aIQ=w958-h911-rw-v1" style="width: 384px; height:384px; max-height: 24rem;">
              </div>
              """,
              unsafe_allow_html=True,
