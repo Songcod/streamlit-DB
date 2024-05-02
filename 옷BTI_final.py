@@ -32,8 +32,8 @@ def interact_with_gsheet(action, spreadsheet_name, worksheet_name, data=None):
 
     if action == 'fetch':
         # Fetch all records from the worksheet
-        data = worksheet.get_all_records()
-        return pd.DataFrame(data)
+        data = worksheet.col_values(8)
+        return data
     elif action == 'append' and data is not None:
         # Append a new row to the worksheet
         worksheet.append_row(data)
@@ -348,3 +348,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
