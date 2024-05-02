@@ -4,17 +4,41 @@ import numpy as np
 import time
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-
-# Authenticate with Google Sheets API
-scope = ['https://spreadsheets.google.com/feeds',
-         'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('db3clothbtitest-94a9d95273f4.json', scope)
-client = gspread.authorize(creds)
+from streamlit import caching
 
 
-# Open the spreadsheet and select the worksheet by name
-spreadsheet = client.open('DB_설문조사')
-worksheet = spreadsheet.worksheet('응답')
+# # Authenticate with Google Sheets API
+# scope = ['https://spreadsheets.google.com/feeds',
+#          'https://www.googleapis.com/auth/drive']
+# creds = ServiceAccountCredentials.from_json_keyfile_name('db3clothbtitest-94a9d95273f4.json', scope)
+# client = gspread.authorize(creds)
+
+
+# # Open the spreadsheet and select the worksheet by name
+# spreadsheet = client.open('DB_설문조사')
+# worksheet = spreadsheet.worksheet('응답')
+
+
+# Function to handle Google Sheets API interactions
+def interact_with_gsheet(action, spreadsheet_name, worksheet_name, data=None):
+
+    # Setup the Google Sheets API client
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name('db3clothbtitest-94a9d95273f4.json', scope)
+    client = gspread.authorize(creds)
+
+    # Open the spreadsheet
+    spreadsheet = client.open(spreadsheet_name)
+    worksheet = spreadsheet.worksheet(worksheet_name)
+
+    if action == 'fetch':
+        # Fetch all records from the worksheet
+        data = worksheet.get_all_records()
+        return pd.DataFrame(data)
+    elif action == 'append' and data is not None:
+        # Append a new row to the worksheet
+        worksheet.append_row(data)
+        return None
 
 def set_page_style():
     st.markdown("""
@@ -164,9 +188,12 @@ def display_cover():
 
     headers = ["트렌드탐험대장", "모던스타일리스트", "그린스타일리스트", "환경우주탐험가"]
 
+
+    df = interact_with_gsheet('fetch', 'DB_설문조사', '응답', data=None) # action : fetch, append
+
     # 특정 열 데이터 검색
     column_number = 8
-    column_data = worksheet.col_values(column_number)
+    column_data = df[column_number]
 
     # 검색된 데이터 출력
     print(column_data)
@@ -244,7 +271,6 @@ def display_results():
 
     selected_options = st.session_state.selected_options # 결과값 리스트
 
-
     result_data = list(selected_options)
     # 사용자의 선택에 대한 점수를 계산합니다.
     results = pd.Series(selected_options)
@@ -272,7 +298,8 @@ def display_results():
     
     if not st.session_state.get('results_saved', False):
          result_data.append(message)
-         worksheet.append_row(result_data)
+
+         interact_with_gsheet('append', 'DB_설문조사', '응답', data=None)
          st.session_state['results_saved'] = True  # 결과가 저장되었다는 표시를 합니다.
 
 
@@ -300,8 +327,6 @@ def display_results():
 
 
 
-
-
     # '다시 시작하기' 버튼을 제공하여 사용자가 설문조사를 재시작할 수 있도록 합니다.
     col1, col2, col3 = st.columns([1,1,1])
     with col2:
@@ -324,5 +349,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
