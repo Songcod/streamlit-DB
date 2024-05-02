@@ -190,15 +190,9 @@ def display_cover():
 
     df = interact_with_gsheet('fetch', 'DB_설문조사', '응답', data=None) # action : fetch, append
 
-    # 특정 열 데이터 검색
-    column_number = 8
-    column_data = df[column_number]
-
-    # 검색된 데이터 출력
-    print(column_data)
 
     # '값' 열의 각 값에 대한 상대적 백분율 계산
-    value_counts = pd.Series(column_data).value_counts(normalize=True) * 100
+    value_counts = pd.Series(df).value_counts(normalize=True) * 100
 
     # 결과를 딕셔너리 형태로 변환
     percentage_dict = value_counts.to_dict()
@@ -348,4 +342,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
